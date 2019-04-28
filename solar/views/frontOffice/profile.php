@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="icon" href="img/favicon.png" type="image/png">
-	<title>SteakShop Restaurant</title>
+	<title>Solar</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="vendors/linericon/style.css">
@@ -61,7 +61,7 @@
 							<li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
 						</ul>
 					</li>
-					<li class="nav-item"><a class="nav-link active" href="profile.php"><img src="img/header/nav-icon8.png" alt="">profile</a></li>
+					<li class="nav-item"><a class="nav-link active" href="profile.php"><img src="img/header/nav-icon8.png" alt="">Login</a></li>
 				</ul>
 			</div>
 		</div>

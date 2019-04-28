@@ -6,17 +6,17 @@ class fidelite
 
     private $idF;
     private $dateCreation;
-    private $causeAjout;
+    private $user;
     private $Commentaire;
     private $ptsF;
     //private $id;
  
    
- public function __construct($idF=null,$dateCreation,$causeAjout,$Commentaire,$ptsF)
+ public function __construct($idF=null,$dateCreation,$user,$Commentaire,$ptsF)
     {
         $this->idF = $idF;
         $this->dateCreation = $dateCreation;
-        $this->causeAjout = $causeAjout;
+        $this->user = $user;
         $this->Commentaire = $Commentaire;
         $this->ptsF = $ptsF;
     }
@@ -63,17 +63,17 @@ class fidelite
     /**
      * @return mixed
      */
-    public function getCauseAjout()
+    public function getUser()
     {
-        return $this->causeAjout;
+        return $this->user;
     }
 
     /**
      * @param mixed $sexe
      */
-    public function setCauseAjout($causeAjout)
+    public function setUser($user)
     {
-        $this->causeAjout = $causeAjout;
+        $this->user = $user;
     }
 
     /**

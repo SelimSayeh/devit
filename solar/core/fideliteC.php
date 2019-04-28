@@ -8,16 +8,16 @@ class fideliteC
     public function addCarte($fidelite)
     {
         $conn=config::getConnexion();
-        $sql="INSERT INTO `fidelite`(dateCreation,causeAjout,Commentaire,ptsF) VALUES(:dateCreation,:causeAjout,:Commentaire,:ptsF)";
+        $sql="INSERT INTO `fidelite`(dateCreation,iduser,Commentaire,ptsF) VALUES(:dateCreation,:iduser,:Commentaire,:ptsF)";
         try{
         $req=$conn->prepare($sql);
 
-         $causeAjout=$fidelite-> getCauseAjout();
+        $user=$fidelite->getUser();
         $Commentaire=$fidelite->getCommentaire();
         $dateCreation=$fidelite->getDate();
         $ptsF=$fidelite->getPtsF();
         $req->bindValue(':dateCreation',$dateCreation);
-        $req->bindValue(':causeAjout',$causeAjout);
+        $req->bindValue(':iduser',$user);
         $req->bindValue(':Commentaire',$Commentaire);
         $req->bindValue(':ptsF',$ptsF);
         
@@ -30,10 +30,22 @@ class fideliteC
     }
 }
 
+   function trierF(){
+        //$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
+        $sql="SElECT * From fidelite ORDER BY dateCreation";
+        $db = config::getConnexion();
+        try{
+        $liste=$db->query($sql);
+        return $liste;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        } 
+        }  
 
    function afficherF(){
         //$sql="SElECT * From employe e inner join formationphp.employe a on e.cin= a.cin";
-        $sql="SElECT * From fidelite";
+        $sql="select c.nom , c.prenom , f.dateCreation , f.Commentaire , f.ptsF , f.idF from fidelite as f inner join client as c where f.iduser=c.id";
         $db = config::getConnexion();
         try{
         $liste=$db->query($sql);
@@ -46,12 +58,21 @@ class fideliteC
 
    
 
-    function SupprimerF($ptsF){
-        $sql="DELETE FROM fidelite where ptsF=:ptsF";
+    function SupprimerF($id){
+        $sql="DELETE FROM fidelite where idF=:idF";
         $db = config::getConnexion();
         $req=$db->prepare($sql);
-        $req->bindValue(':ptsF',$ptsF);
+        $req->bindValue(':idF',$id);
         $req->execute();
+       
+    }
+
+
+      function getusers(){
+        $sql="SELECT client.id, client.nom FROM client where client.id not in (select fidelite.iduser from fidelite )";
+        $db = config::getConnexion();
+        $users=$db->query($sql);
+        return $users;
        
     }
 

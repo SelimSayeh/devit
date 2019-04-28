@@ -20,15 +20,7 @@
 							<h1>Modifying Account</h1>
 							<p> creating accounts helps our customers to buy limited products, will facilitate making a reservation and benefiting from discounts .</p>
 						</div>
-						<div class="col-lg-5 col-md-12">
-							<div class="page-link-wrap">
-								<div class="page_link">
-									<a href="index.html">Home</a>
-									<a href="create.html">Modify Account</a>
-								</div>
-							</div>
-						</div>
-						
+	
 			
 		<!-- End banner bottom -->
 		<!--================ End Home Banner Area =================-->

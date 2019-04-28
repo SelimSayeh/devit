@@ -89,5 +89,23 @@ public function login($mail,$password)
 
 
 
+ public function recherche($search){
+        $db = config::getConnexion();
+            $sql="select * from client where id like '%$search%' or nom like '%$search%' or prenom like '%$search%' ";
+
+        try{
+        $req=$db->prepare($sql);
+        $req->execute();
+        $evenement= $req->fetchALL(PDO::FETCH_OBJ);
+        return $evenement;
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }    
+}
+
+
+
+
 }
 ?>
